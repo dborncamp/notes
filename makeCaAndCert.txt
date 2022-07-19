@@ -1,0 +1,73 @@
+zsh 421% openssl genrsa -des3 -out myCA.key 2048
+Generating RSA private key, 2048 bit long modulus
+.......+++
+..................+++
+e is 65537 (0x10001)
+Enter pass phrase for myCA.key:  - password
+Verifying - Enter pass phrase for myCA.key:  - password
+
+
+zsh 422% openssl req -x509 -new -nodes -key myCA.key -sha256 -days 1825 -out myCA.pem
+Enter pass phrase for myCA.key:
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) []:us
+State or Province Name (full name) []:Virginia
+Locality Name (eg, city) []:Alexandria
+Organization Name (eg, company) []:u.s. government
+Organizational Unit Name (eg, section) []:di2e
+Common Name (eg, fully qualified host name) []:mongodb
+Email Address []:
+
+zsh 425% openssl genrsa -out mongodb.key 2048
+Generating RSA private key, 2048 bit long modulus
+.........................................+++
+..+++
+e is 65537 (0x10001)
+
+
+zsh 426% openssl req -new -key mongodb.key -out mongodb.csr
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) []:us
+State or Province Name (full name) []:Virginia
+Locality Name (eg, city) []:Alexandria
+Organization Name (eg, company) []:u.s. government
+Organizational Unit Name (eg, section) []:di2e
+Common Name (eg, fully qualified host name) []:mongodb
+Email Address []:
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+
+
+
+Make the ext file
+zsh 446% cat mongodb.ext
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = mongo-data
+
+
+zsh 431% openssl x509 -req -in mongodb.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial -out mongodb.crt -days 825 -sha256 -extfile mongodb.ext
+Signature ok
+subject=/C=us/ST=Virginia/L=Alexandria/O=u.s. government/OU=di2e/CN=mongodb
+Getting CA Private Key
+Enter pass phrase for myCA.key:  - password
+
+

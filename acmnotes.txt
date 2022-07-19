@@ -1,0 +1,154 @@
+AO - users, all of the aback and rback attributes
+
+ACM - dod specifications marks information asserts classification
+
+mac - mission access control
+
+
+
+----
+
+
+if (all conditions granting R)
+   if (all conditions granting X)
+      if (all conditions granting C)
+         if (all conditions granting U)
+            if (all conditions granting D)
+               if (all conditions granting P)
+                  yield C R U D X P
+                  yield C R U D X
+               if (all conditions granting P)
+                  yield C R U X P
+                  yield C R U X
+            if (all conditions granting D)
+               if (all conditions granting P)
+                  yield C R D X P
+                  yield C R D X
+               if (all conditions granting P)
+                  yield C R X P
+                  yield C R X
+         if (all conditions granting U)
+            if (all conditions granting D)
+               if (all conditions granting P)
+                  yield R U D X P
+                  yield R U D X
+               if (all conditions granting P)
+                  yield R U X P
+                  yield R U X
+            if (all conditions granting D)
+               if (all conditions granting P)
+                  yield R D X P
+                  yield R D X
+               if (all conditions granting P)
+                  yield R X P
+                  yield R X
+      if (all conditions granting C)
+         if (all conditions granting U)
+            if (all conditions granting D)
+               if (all conditions granting P)
+                  yield C R U D P
+                  yield C R U D
+               if (all conditions granting P)
+                  yield C R U P
+                  yield C R U
+            if (all conditions granting D)
+               if (all conditions granting P)
+                  yield C R D P
+                  yield C R D
+               if (all conditions granting P)
+                  yield C R P
+                  yield C R
+         if (all conditions granting U)
+            if (all conditions granting D)
+               if (all conditions granting P)
+                  yield R U D P
+                  yield R U D
+               if (all conditions granting P)
+                  yield R U P
+                  yield R U
+            if (all conditions granting D)
+               if (all conditions granting P)
+                  yield R D P
+                  yield R D
+               if (all conditions granting P)
+                  yield R P
+                  yield R
+
+
+
+
+Read in permissions is ignored in favor of what the ACM specifies. Execute still exists on its own
+TBD if supplying a read will even be allowed, if it is and it is not in the ACM will be an Error or silently ignored
+
+Read required for everything (if not in the ACM, ignore the permissions too)
+Treat purge independent of delete (p does NOT need d)
+Treat update independent of purge and delete 
+Treat execute independent of read (we can have read on its own)
+
+New possible permissions combinations (ordered):
+C R U D X P
+C R U D X
+C R U X P
+C R U X
+C R D X P
+C R D X
+C R X P
+C R X
+R U D X P
+R U D X
+R U X P
+R U X
+R D X P
+R D X
+R X P
+R X
+C R U D P
+C R U D
+C R U P
+C R U
+C R D P
+C R D
+C R P
+C R
+R U D P
+R U D
+R U P
+R U
+R D P
+R D
+R P
+R
+
+
+C R U D X P
+C R U D X
+C R U X P
+C R U X
+C R D X P
+C R D X
+C R X P
+C R X
+R U D X P
+R U D X
+R U X P
+R U X
+R D X P
+R D X
+R X P
+R X
+C R U D P
+C R U D
+C R U P
+C R U
+C R D P
+C R D
+C R P
+C R
+R U D P
+R U D
+R U P
+R U
+R D P
+R D
+R P
+R
