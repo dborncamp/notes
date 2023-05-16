@@ -1,5 +1,7 @@
 # Windows Subsystem for Linux
 
+***Note After 4/13/23 this failed to work***
+
 ## Installing
 
 List off potential linux distros

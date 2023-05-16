@@ -2,7 +2,7 @@
 
 Some helpful docker commands
 
-## Run a container 
+## Run a container
 
 Docker containers can be run by running the basic command:
 
@@ -34,10 +34,11 @@ It works similar to running docker with interactive mode (`-it`) but it only wor
 First, figure out what containers are running.
 To do this run `docker ps`, you will get a response that looks like this
 
-
+```txt
 | CONTAINER ID 	| IMAGE         	| COMMAND                	| CREATED           	| STATUS           	| PORTS                                               	| NAMES        	|
 |--------------	|---------------	|------------------------	|-------------------	|------------------	|-----------------------------------------------------	|--------------	|
 | 7af7e1469cc1 	| <image>:<tag> 	| "container-entrypoin…" 	| About an hour ago 	| Up About an hour 	| 3000/tcp, 0.0.0.0:5000->5000/tcp, :::5000->5000/tcp 	| flask-server 	|
+```
 
 From here we can take the container ID and get into the container
 
@@ -46,5 +47,3 @@ docker exec -it 7af7e1469cc1 sh
 ```
 
 This will drop the terminal into the running container and run `sh` as the shell.
-
-
