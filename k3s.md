@@ -77,7 +77,7 @@ Copy the k3s executable to the $PATH
 sudo cp k3s /usr/local/bin
 chmod /usr/local/bin/k3s
 ```
- 
+
 ## Start the Server
 
 Unpack the repo and install
@@ -99,7 +99,7 @@ cp /etc/rancher/k3s/k3s.yaml .kube/config
 
 Configure pull secrets and deploy services.
 
-```
+```txt
 kubectl create secret docker-registry vision-gitlab-registry --docker-username=group_10_bot --docker-password=<token> --docker-email=group_10_bot@cpn.local --docker-server=bsf.cpnidm.local
 kubectl create secret docker-registry gitlab-registry --docker-username=group_68_bot1 --docker-password=<token> --docker-email=group_68_bot1@cpn.local --docker-server=bsf.cpnidm.local
 
