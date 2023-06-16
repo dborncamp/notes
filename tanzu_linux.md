@@ -12,6 +12,8 @@ Note: for Gremlin on Aero the DSOA ticket that has the cluster information is [h
 
 Sudo access on the host.
 
+Note: Kubectl is expected to already be present on the host.
+
 ## Download
 
 Download the bundle package from the content repository  and move it onto the workstation.
