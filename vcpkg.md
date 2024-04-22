@@ -18,21 +18,26 @@ The C++ package manager that we will need to use going forward.
 - `registry` a catalog of ports and versions that a user can install. Could be public or local and contains customizations if needed
 - `port file` describes to download, build, install, and package a specific C++ library from source using vcpkg. This is the `portfile.cmake` file
 
-### Ideas
+### Ideas & Concepts
 
-- _Binary Caching_: allows for the project to take in a binary rather than always build from source.
+- _Binary Caching_: Allows for the project to take in a binary rather than always build from source.
 This could save a lot of time building the target code, but means that every library will need to be built at each release.
 If a binary does not exist, the definition in the port file should describe how to build the code using vcpkg.
 
-> Do we want to change how we do configration management for common codebase? Or keep it so that when we release one thing we update versions of everything?
+> Do we want to change how we do configration management for the common codebase?
+> Or keep it so that when we release one thing we update versions of everything?
 
-- _Asset Caching_: allows for an "air gapped" install.
+- _Asset Caching_: Allows for an "air gapped" install.
 It basically copies what is in the target repo from an online source and copies it to a local registry.
 
 - _Overlay Ports_: An overlay port can act as a drop-in replacement for an existing port or as a new port that is otherwise not available in a registry.
 While resolving package names, overlay ports take priority.
 This basically allows us to install things locally and cache locally.
-It also allows us to have an environment that is seperate from others.
+It also allows us to have an environment that is seperate from others when in "Classic Mode".
+
+- _Features_: A way to selectively add functionality, behavior, and dependencies from a library.
+This could be extremely powerful for building our code and libraries especially with a mix of Clear, CUI, and High code.
+We need to look into this.
 
 ## Setup
 
@@ -92,6 +97,32 @@ Basic example:
 - `host`: true: Specifies that vcpkg-cmake is a host dependency, meaning it's required for building the package but not for using it.
 - `name`: vcpkg-cmake-config: Specifies a dependency on vcpkg-cmake-config, which assists in using CMake config scripts.
 - `fmt`: Specifies a run-time dependency on the fmt library. This means fmt is required for both - building and using the package.
+
+#### Manifest Registry Config
+
+You can redirect the registry to point elsewhere or to use specific tags/commits.
+This way you can add more package registries or overlay port locations.
+
+```json
+{
+  "default-registry": {
+    "kind": "git",
+    "baseline": "7476f0d4e77d3333fbb249657df8251c28c4faae",
+    "repository": "https://github.com/microsoft/vcpkg"
+  },
+  "registries": [
+    {
+      "kind": "git",
+      "repository": "https://github.com/northwindtraders/vcpkg-registry",
+      "baseline": "dacf4de488094a384ca2c202b923ccc097956e0c",
+      "packages": [ "beicode", "beison" ]
+    }
+  ],
+  "overlay-ports": [
+    "C:\\dev\\my_vcpkg_ports"
+  ]
+}
+```
 
 ### Port File
 
