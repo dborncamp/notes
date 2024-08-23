@@ -1,0 +1,19 @@
+Copyright:      2024, BAE Systems, Inc.
+
+NOTICE:
+BAE Systems, Inc. Proprietary Information
+The information contained herein is the private property of
+BAE Systems, Inc. that is being made available to the recipient
+under the terms of a nondisclosure agreement or by other special
+arrangement.  It may not be used, in whole or in part, except for
+the limited purpose for which it has been furnished.  It may not
+be distributed or reproduced, except as specifically authorized
+by BAE Systems, Inc. and with this legend conspicuously attached.
+This information is exempt from public disclosure under 5 U.S.C.
+552(b)(4), and its use by Government personnel is subject to the
+restrictions imposed by 18 U.S.C. 1905.
+
+Export Control Notice
+Export or re-export of information contained herein may be subject
+to restrictions and requirements of U.S. export laws and regulations
+and may require advance authorization from the U.S. Government.
