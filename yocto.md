@@ -52,6 +52,12 @@ An assignment with just `=` is hard assignment will over always overwrite.
 Layers start with `meta-`.
 pre made layers can be found at https://www.yoctoproject.org/development/yocto-project-compatible-layers/ and https://www.yoctoproject.org/development/yocto-project-compatible-layers/.
 
+Existing layers can be found on [the Open Embedded](https://layers.openembedded.org/layerindex/branch/master/layers/).
+You must add the layers to the poky layers config in `poky/build/conf/bblayers.conf`.
+Once layers are added to the config, you can add depends on your custom recipies.
+
+To add a new recipe, bitbake has some things built in to help create it: `devtool add k0s /home/dave/playpen/yocto_test/poky/build/workspace/sources/k0s https://arti.bsf.ball.com:443/artifactory/dev-local/k0s/k0s_binary_and_images.tar.gz -b`
+
 ## Useful links
 
 - [PetaLinux to Yocto Command cross reference](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/2787311617/PetaLinux+to+Yocto+-+Command+Cross+Reference)
