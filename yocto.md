@@ -20,9 +20,11 @@ bitbake core-image-sato
 - `docker build -t yacto_fun .`
 - `docker run -it --privileged --net host -v $(pwd):/playpen -e GITLAB_CREDS -e CI_SERVER_HOST="gitlab.aero.ball.com" -e GITLAB_GROUP -e AERO=true -u yocto yacto_fun:latest bash`
 - `bitbake -c menuconfig virtual/kernel` - Look at the kernel configuration for the image that it will build.
-- `bitbake - c cleanall core-image-minimal` - Clean up the output images to try to start over
+- `bitbake -c cleanall core-image-minimal` - Clean up the output images to try to start over
   - `rm -rf tmp` - Remove everything and actually start over. This includes the layers and all intermedate steps.
-- `bitbake-layers create-layer <layer-name>` create a new Yocto layer, usuallt called `meta-<something>`.
+- `bitbake-layers create-layer <layer-name>` - create a new Yocto layer, usuallt called `meta-<something>`.
+- `bitbake <layer-name>` - to create that layer
+- `bitbake virtual/kernel` - rebuild the kernel
 
 ## Terms
 
