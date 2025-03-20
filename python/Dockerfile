@@ -1,7 +1,7 @@
 #
 # Builder image, build a binary to be shipped off to a different base
 #
-FROM registry-gitlab.aero.ball.com/bsf/runner-images/ubi9/ubi:9.2 as builder
+FROM ubi:9.2 as builder
 
 WORKDIR /opt/app
 
@@ -29,7 +29,7 @@ RUN python3.11 -m venv tester_env &&\
 # This container is WAY bigger than it needs to be
 #
 #
-FROM registry-gitlab.aero.ball.com/bsf/runner-images/ubi9/ubi:9.2 as release-ubi9
+FROM ubi:9.2 as release-ubi9
 
 WORKDIR /opt/app
 
