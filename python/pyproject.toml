@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "network_tester"
 version = "0.0.1"
 authors = [
-  { name="Dave Borncamp", email="dave.borncamp@baesystems.us" },
+  { name="Dave Borncamp", email="dave.borncamp@gmail.com" },
 ]
 description = "A way to mess with ethernet networking"
 readme = "README.md"
@@ -15,9 +15,6 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
 ]
-
-[project.urls]
-Homepage = "https://gitlab.aero.ball.com/bcpfsw/stardust/network-tester"
 
 [project.scripts]
 my-script = "network_tester.main:main"
